@@ -1,0 +1,53 @@
+<div class="app-container">
+
+  <!-- Burger Menu -->
+  <button
+    type="button"
+    title="Sidemenu Toggle"
+    class="burger-menu"
+    (click)="toggleSidebar()"
+    *ngIf="!sidebarOpen"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div
+    class="sidebar"
+    [class.open]="sidebarOpen"
+  >
+    <button
+      class="close-btn"
+      (click)="toggleSidebar()"
+    >&#10005;</button>
+
+    <ul>
+      <li routerLink="/"><a>Welcome</a></li>
+      <li
+        *ngFor="let season of seasons"
+        class="season"
+      >
+        {{season.label}}
+        <ul>
+          <li
+            *ngFor="let song of season.songs"
+            routerLink="/season/{{season.label}}/song/{{song.id}}"
+          >
+            <a>{{song.name}}</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <div class="logo-container">
+      <img
+        class="logo"
+        src="/Logo.png"
+        alt="kidsandheroes"
+      >
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+</div>
