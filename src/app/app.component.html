@@ -32,7 +32,7 @@
         <ul>
           <li
             *ngFor="let song of season.songs"
-            routerLink="/season/{{season.label}}/song/{{song.id}}"
+            (click)="OnClickSong(season, song)"
           >
             <a>{{song.name}}</a>
           </li>
