@@ -7,5 +7,6 @@ export interface Song {
   id: number;
   name: string;
   lyrics: string;
-  story: string;
+  link: string;
+  linkName: string;
 }

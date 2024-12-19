@@ -1,18 +1,19 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Season } from '../season';
+import { Season, Song } from '../season';
 import { getSeasons } from '../service/song.service';
 import { Subject, takeUntil } from 'rxjs';
+import { NgIf } from '@angular/common';
 
 
 @Component({
   selector: 'app-song',
-  imports: [],
+  imports: [NgIf],
   templateUrl: './song.component.html',
   styleUrl: './song.component.scss'
 })
 export class SongComponent {
-  public songTitle = '';
+  public song!: Song;
   public songStory = '';
   public songLyrics = '';
   private seasons: Season[] = [];
@@ -38,13 +39,7 @@ export class SongComponent {
         const songID = params['id'];
         const seasonObj = this.seasons.find((s) => s.label === season);
         if (songID) {
-          const song = seasonObj?.songs.find(s => s.id === +songID);
-
-          if (song) {
-            this.songTitle = song.name;
-            this.songStory = song.story;
-            this.songLyrics = song.lyrics;
-          }
+          this.song = seasonObj?.songs.find(s => s.id === +songID) as Song;
         }
       });
   }

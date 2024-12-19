@@ -8,9 +8,7 @@
     (click)="toggleSidebar()"
     *ngIf="!sidebarOpen"
   >
-    <span></span>
-    <span></span>
-    <span></span>
+   Open Sidebar
   </button>
 
   <div
@@ -23,7 +21,7 @@
     >&#10005;</button>
 
     <ul>
-      <li routerLink="/"><a>Welcome</a></li>
+      <li routerLink="/" (click)="toggleSidebar()"><a>Welcome</a></li>
       <li
         *ngFor="let season of seasons"
         class="season"
@@ -49,5 +47,65 @@
       >
     </div>
     <router-outlet></router-outlet>
+
+
+
+    <!-- New Section for Logos and Social Links -->
+    <div class="footer-section">
+      <div class="logos-container">
+        <!-- First Logo -->
+        <div class="logo-item">
+          <img
+            src="/Logo.png"
+            alt="kidsandheroes"
+            class="footer-logo"
+          >
+          <div class="social-links">
+            <a
+              rel="noopener"
+              href="https://instagram.com/kidsandheroes"
+              target="_blank"
+            >Instagram</a>
+            <a
+              rel="noopener"
+              href="https://facebook.com/kidsandheroes"
+              target="_blank"
+            >Facebook</a>
+            <a
+              rel="noopener"
+              href="https://youtube.com/kidsandheroes"
+              target="_blank"
+            >YouTube</a>
+          </div>
+        </div>
+        <!-- Second Logo -->
+        <div class="logo-item">
+          <img
+            src="/hippiness_logo.png"
+            alt="Hippiness"
+            class="footer-logo"
+          >
+          <div class="social-links">
+            <a
+              rel="noopener"
+              href="https://instagram.com/hippiness"
+              target="_blank"
+            >Instagram</a>
+            <a
+              rel="noopener"
+              href="https://facebook.com/hippiness"
+              target="_blank"
+            >Facebook</a>
+            <a
+              rel="noopener"
+              href="https://youtube.com/hippiness"
+              target="_blank"
+            >YouTube</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+
 </div>

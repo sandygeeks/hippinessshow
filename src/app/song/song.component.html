@@ -1,5 +1,15 @@
-<h1>{{ songTitle }}</h1>
-<p><strong>Story</strong></p>
-<p class="story">{{ songStory }}</p>
+<h1>{{ song.name }}</h1>
 <p><strong>Lyrics</strong></p>
-<p class="lyrics">{{ songLyrics }}</p>
+<p class="lyrics">{{ song.lyrics }}</p>
+
+<hr>
+<ng-container *ngIf="song.link">
+    <p>Here is the link to the song, save it for later.</p>
+    <div class="lyrics">
+        <a
+            [href]="song.link"
+            target="_blank"
+        >{{song.linkName}}
+        </a>
+    </div>
+</ng-container>
